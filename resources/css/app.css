@@ -1,0 +1,10 @@
+@import url(https://fonts.bunny.net/css?family=archivo-narrow:400,500,600,700);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+textarea{
+    resize: none;
+}
+html{
+    font-family: 'Archivo Narrow', sans-serif;
+}
