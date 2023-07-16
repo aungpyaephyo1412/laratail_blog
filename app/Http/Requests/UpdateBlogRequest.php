@@ -22,7 +22,7 @@ class UpdateBlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'blog_photo' => 'required|mimes:jpg,bmp,png',
+            'blog_photo' => 'mimes:jpg,bmp,png',
             'blog_title' => 'required|min:20|max:500',
             'blog_description' => 'required|min:150'
         ];

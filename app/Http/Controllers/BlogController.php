@@ -66,16 +66,20 @@ class BlogController extends Controller
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
 //        return $request;
-        if (Storage::exists('public/'.$blog->image)){
-            Storage::delete('public/'.$blog->image);
+        if ($request->hasFile('blog_photo')){
+            if (Storage::exists('public/'.$blog->image)){
+                Storage::delete('public/'.$blog->image);
+            }
+            $fileName = uniqid() . uniqid() . $request->file('blog_photo')->getClientOriginalName();
+            $request->file('blog_photo')->storeAs('public',$fileName);
+            $blog->image = $fileName;
+        }else{
+            $blog->image = $blog->image;
         }
-        $fileName = uniqid() . uniqid() . $request->file('blog_photo')->getClientOriginalName();
-        $request->file('blog_photo')->storeAs('public',$fileName);
         $blog->title = $request->blog_title;
         $blog->slug = Str::slug($request->blog_title);
         $blog->description = $request->blog_description;
         $blog->excerpt = Str::words($request->blog_description,30,'....');
-        $blog->image = $fileName;
         $blog->update();
         return redirect()->route('blog.index')->with(['edit'=>'Your post has been updated']);
     }

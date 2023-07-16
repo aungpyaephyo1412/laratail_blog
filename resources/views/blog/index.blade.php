@@ -193,7 +193,9 @@
                     </div>
                 @endforelse
             </div>
-            <div class="hidden md:w-[35%]"></div>
+            <div class="hidden md:block md:w-[35%] px-5 mt-5">
+                @include('layout.sidebar')
+            </div>
 
         </div>
     </div>

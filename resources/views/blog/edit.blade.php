@@ -9,7 +9,7 @@
             @csrf
             @method('PUT')
             <div class="mb-6">
-                <input name="blog_photo" value="{{old('blog_photo')}}" accept="image/*" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                <input name="blog_photo" value="{{$blog->photo}}" accept="image/*" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
                 @error('blog_photo')
                 <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                     {{$message}}
@@ -19,7 +19,7 @@
 
             <div class="mb-6">
                 <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blog Title</label>
-                <input name="blog_title" value="{{old('blog_title')}}" type="text" id="base-input" class="bg-gray-50 border border-gray-300 @error('blog_title') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <input name="blog_title" value="{{$blog->title}}" type="text" id="base-input" class="bg-gray-50 border border-gray-300 @error('blog_title') border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 @error('blog_title')
                 <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                     {{$message}}
@@ -28,7 +28,7 @@
             </div>
             <div class="mb-6">
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blog Description</label>
-                <textarea name="blog_description" id="message" rows="7" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 @error('blog_description') border-red-500 @enderror focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment...">{{old('blog_description')}}</textarea>
+                <textarea name="blog_description" id="message" rows="7" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 @error('blog_description') border-red-500 @enderror focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment...">{{$blog->description}}</textarea>
                 @error('blog_description')
                 <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                     {{$message}}
